@@ -79,7 +79,7 @@ example_images = {
     "Motif Batik E": r"batik/sample_images/Lasem.jpg"
 }
 
-# Link file model Google Drive (ubah sesuai URL)
+# Link file model Google Drive
 vgg_model_url = "https://drive.google.com/uc?export=download&id=1wdrgADWhWdLIWjJ91pGMulhJJ8tyjH8L"
 resnet_model_url = "https://drive.google.com/uc?export=download&id=1pJxyqm-LUsrq8B9iZIkRieAs2Ktmhrev"
 
@@ -87,9 +87,9 @@ resnet_model_url = "https://drive.google.com/uc?export=download&id=1pJxyqm-LUsrq
 vgg_model_path = "VGGModel3.h5"
 resnet_model_path = "resnet50model3.h5"
 
-# Unduh model
 gdown.download(vgg_model_url, vgg_model_path, quiet=False)
 gdown.download(resnet_model_url, resnet_model_path, quiet=False)
+
 
 # Fungsi untuk memproses gambar
 def preprocess_image(image, target_size=(224, 224)):
