@@ -1,0 +1,18 @@
+# Virtual environments
+.venv/
+myenv/
+.pdm-python
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Trained models and large files
+batik/model/
+
+# Editor settings
+.vscode/
+
+# Package manager lock files
+pdm.lock
