@@ -5,6 +5,7 @@ from tensorflow.keras.preprocessing.image import img_to_array  # type: ignore
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt # type: ignore
+import gdown
 
 # CSS Styling untuk aplikasi Streamlit
 st.markdown(
@@ -69,18 +70,26 @@ def load_keras_model(model_path):
 # Kelas label untuk motif batik
 CLASS_NAMES = ['Motif Batik Aceh', 'Motif Batik Bali', 'Motif Batik Betawi', 'Motif Batik Cirebon', 'Motif Batik Lasem']
 
-# Gambar contoh
+# Gambar contoh dengan path relatif
 example_images = {
-    "Motif Batik A": r"D:\SMT 7\Machine Learning\UAP\batik\sample_images\Aceh.jpg",
-    "Motif Batik B": r"D:\SMT 7\Machine Learning\UAP\batik\sample_images\Bali.jpg",
-    "Motif Batik C": r"D:\SMT 7\Machine Learning\UAP\batik\sample_images\Betawi.jpg",
-    "Motif Batik D": r"D:\SMT 7\Machine Learning\UAP\batik\sample_images\Cirebon.jpg",
-    "Motif Batik E": r"D:\SMT 7\Machine Learning\UAP\batik\sample_images\Lasem.jpg"
+    "Motif Batik A": r"batik/sample_images/Aceh.jpg",
+    "Motif Batik B": r"batik/sample_images/Bali.jpg",
+    "Motif Batik C": r"batik/sample_images/Betawi.jpg",
+    "Motif Batik D": r"batik/sample_images/Cirebon.jpg",
+    "Motif Batik E": r"batik/sample_images/Lasem.jpg"
 }
 
-# Path model yang baru
-vgg_model_path = r"D:\SMT 7\Machine Learning\UAP\batik\model\VGGModel3.h5"
-resnet_model_path = r"D:\SMT 7\Machine Learning\UAP\batik\model\resnet50model3.h5"
+# Link file model Google Drive (ubah sesuai URL)
+vgg_model_url = "https://drive.google.com/uc?export=download&id=1wdrgADWhWdLIWjJ91pGMulhJJ8tyjH8L"
+resnet_model_url = "https://drive.google.com/uc?export=download&id=1pJxyqm-LUsrq8B9iZIkRieAs2Ktmhrev"
+
+# Path dimana model akan disimpan
+vgg_model_path = "VGGModel3.h5"
+resnet_model_path = "resnet50model3.h5"
+
+# Unduh model
+gdown.download(vgg_model_url, vgg_model_path, quiet=False)
+gdown.download(resnet_model_url, resnet_model_path, quiet=False)
 
 # Fungsi untuk memproses gambar
 def preprocess_image(image, target_size=(224, 224)):
